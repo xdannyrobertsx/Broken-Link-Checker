@@ -1,0 +1,4 @@
+Link,Status,HTTP Code,Parent
+https://capptegy.com/o/neo,BROKEN,500,https://capptegy.com/
+https://www.apptegy.com/webmentions/receive/,BROKEN,404,https://apptegy.com/
+https://www.twitter.com/apptegy,BROKEN,403,https://apptegy.com/
