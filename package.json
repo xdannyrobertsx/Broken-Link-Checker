@@ -1,7 +1,7 @@
 {
   "name": "",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a simple Node.js script that checks the status of links in a list and generates a CSV report.",
   "main": "index.js",
   "type": "module",
   "license": "AGPL-version-3.0",
