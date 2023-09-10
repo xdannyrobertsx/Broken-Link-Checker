@@ -11,19 +11,20 @@ async function checkLinksFromFile(filename, filterBroken) {
     const linksFilePath = path.join(currentWorkingDir, filename);
 
     try {
-        // Check if the links.txt file exists
         const fileExists = await fs.access(linksFilePath).then(() => true).catch(() => false);
-
         if (!fileExists) {
             console.error(`The file "${filename}" does not exist.`);
             return;
         }
 
         const links = (await fs.readFile(linksFilePath, 'utf-8')).split('\n').filter(link => link.trim() !== '');
-
         const checker = new LinkChecker();
 
         const brokenLinks = [];
+
+        checker.on('pagestart', url => {
+            console.log(`Scanning ${url}`);
+          });
 
         checker.on("link", (result) => {
             if (!filterBroken || result.state === 'BROKEN') {
@@ -43,7 +44,8 @@ async function checkLinksFromFile(filename, filterBroken) {
         for (const link of links) {
             await checker.check({
                 path: `${link}`,
-                recurse: true
+                recurse: true,
+                timeout: 10000
             });
 
             progressBar.increment();
