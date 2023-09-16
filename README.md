@@ -20,7 +20,7 @@ Ensure that you have the following software installed:
 4. Run the script:
 
    ```sh
-   node checkLinks.js
+   node script.js
     ```
 
 5. Profit
